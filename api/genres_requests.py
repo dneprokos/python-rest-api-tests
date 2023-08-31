@@ -7,7 +7,7 @@ class GenresRequests(BaseRequests):
         self.base_url += '/genres'
 
     # Get all genres
-    def get_genres(self, auth_token: str):
+    def get_all_genres(self, auth_token: str):
         url = f"{self.base_url}"
         headers = {
             "Accept": "application/json",

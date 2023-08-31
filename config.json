@@ -1,3 +1,7 @@
 {
-    "base_url": "http://localhost:5000/api"
+    "base_url": "http://localhost:5000/api",
+    "regular_user": "test",
+    "regular_user_password": "testpassword",
+    "admin_user": "testadmin",
+    "admin_user_password": "testadminpassword"
 }
