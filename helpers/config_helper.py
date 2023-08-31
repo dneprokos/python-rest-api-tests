@@ -16,3 +16,19 @@ class ConfigHelper:
         base_url = self.config_data.get("base_url")
         assert '/api' in base_url, "base_url must contain /api"
         return base_url.rstrip("/")
+    
+    # get regular user credentials method is used to get regular user credentials from config.json file
+    def get_regular_user_credentials(self):
+        user_name = self.config_data.get("regular_user")
+        password = self.config_data.get("regular_user_password")
+        assert user_name is not None, "regular_user must be specified in config.json"
+        assert password is not None, "regular_user_password must be specified in config.json"
+        return user_name, password
+    
+    # get admin user credentials method is used to get admin user credentials from config.json file
+    def get_admin_user_credentials(self):
+        user_name = self.config_data.get("admin_user")
+        password = self.config_data.get("admin_user_password")
+        assert user_name is not None, "admin_user must be specified in config.json"
+        assert password is not None, "admin_user_password must be specified in config.json"
+        return user_name, password
