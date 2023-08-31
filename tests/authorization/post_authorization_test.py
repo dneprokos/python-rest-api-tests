@@ -15,5 +15,6 @@ def test_post_authorization_with_valid_non_admin_creds():
     assert response.status_code == 200
     content_type_header = response.headers.get('Content-Type', '')
     assert re.match(r'^application/json(; charset=.+)?$', content_type_header)
-    assert response.json()['accessToken'] is not None
-    assert response.json()['accessToken'] != ''
+    responseBody = response.json()
+    assert responseBody['accessToken'] is not None
+    assert responseBody['accessToken'] != ''
