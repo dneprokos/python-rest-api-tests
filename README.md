@@ -30,3 +30,13 @@ This Project design to pratice in creation of REST API tests using Python progra
 - Run command `pipenv run python -m pytest -s` from command line to run all the tests and see all printed outputs
 
 - Run command `pipenv run python -m pytest -n 5` from command line in order to run all tests in parallel. Number "5" can be changed to expected number of threads
+
+- Run command `pipenv run python -m pytest --alluredir=allure_reports` from command line in order to generate allure-reports. Directory name can be changed
+
+## Show allure reports
+
+- Allure command line should be installed: https://docs.qameta.io/allure/#_installing_a_commandline
+- Tests should be run with allure flag
+- Run command `allure serve allure_reports`. - Last part is a path to directory with generated reports
+
+![Report example](/images/report.png)

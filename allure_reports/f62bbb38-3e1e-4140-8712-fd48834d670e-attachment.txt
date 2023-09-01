@@ -1,0 +1,2 @@
+['Action', 'Horror', 'Romance', 'Science Fiction', 'Disaster Film', 'Epic Romance', 'Superhero Film', 'Space Western', 'Comedy', 'Adventure', 'Western']
+Genres count is: 11
