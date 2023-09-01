@@ -2,7 +2,7 @@
 
 This Project design to pratice in creation of REST API tests using Python programming language
 
-![Config file](/images/Rest_vs_Python.png)
+![Config file](/Images/Rest_vs_Python.png)
 
 # Setup Instructions
 
@@ -39,4 +39,4 @@ This Project design to pratice in creation of REST API tests using Python progra
 - Tests should be run with allure flag
 - Run command `allure serve allure_reports`. - Last part is a path to directory with generated reports
 
-![Report example](/images/report.png)
+![Report example](/Images/report.png)
