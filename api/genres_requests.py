@@ -1,6 +1,4 @@
 from ._base_api import BaseRequests
-import pip._vendor.requests
-import requests
 from requests.models import Response
 
 class GenresRequests(BaseRequests):
@@ -16,9 +14,7 @@ class GenresRequests(BaseRequests):
             "Authorization": f"Bearer {auth_token}"
         }
 
-        response = pip._vendor.requests.get(url, headers=headers)
-
-        return response
+        return self.get_request(url, headers)
     
     # Get all genres - return xml hardcoded. This is just for testing purposes
     def get_all_genres_return_xml_hardcoded(self, auth_token: str):
@@ -65,9 +61,7 @@ class GenresRequests(BaseRequests):
 
         print(f"GET: {url}")
 
-        response = pip._vendor.requests.get(url, headers=headers)
-
-        return response
+        return self.get_request(url, headers)
     
     # Create genre
     def post_genre(self, auth_token: str, payload: dict[str, any]):
@@ -79,9 +73,7 @@ class GenresRequests(BaseRequests):
 
         print(f"POST: {url}")
 
-        response = pip._vendor.requests.post(url, headers=headers, json=payload)
-
-        return response
+        return self.post_request(url, payload, headers)
     
     # Create genres - bulk
     def post_genre_bulk(self, auth_token: str, payload: list[dict[str, any]]):
@@ -93,9 +85,7 @@ class GenresRequests(BaseRequests):
 
         print(f"POST: {url}")
 
-        response = pip._vendor.requests.post(url, headers=headers, json=payload)
-
-        return response
+        return self.post_request(url, payload, headers)
     
     # Update genre
     def put_genre(self, auth_token: str, genre_id: int, payload: dict[str, any]):
@@ -107,9 +97,7 @@ class GenresRequests(BaseRequests):
 
         print(f"PUT: {url}")
 
-        response = pip._vendor.requests.put(url, headers=headers, json=payload)
-
-        return response
+        return self.put_request(url, payload, headers)
     
     # Delete genre
     def delete_genre(self, auth_token: str, genre_id: int):
@@ -121,9 +109,7 @@ class GenresRequests(BaseRequests):
 
         print(f"DELETE: {url}")
 
-        response = pip._vendor.requests.delete(url, headers=headers)
-
-        return response
+        return self.delete_request(url, headers)
     
     def search_genres(self, auth_token: str, queryParams: dict[str, any] = {}):
         url = f"{self.base_url}/search"
@@ -132,9 +118,4 @@ class GenresRequests(BaseRequests):
             "Authorization": f"Bearer {auth_token}"
         }
 
-        print(f"GET: {url}")
-
-        response = pip._vendor.requests.get(url, params=queryParams, headers=headers)
-        print(f"GET: {response.url}")
-
-        return response
+        return self.get_request_with_params(url, queryParams, headers)

@@ -11,6 +11,7 @@ pytest-xdist = "*"
 lxml = "*"
 jsonpath-ng = "*"
 cerberus = "*"
+allure-pytest = "*"
 
 [dev-packages]
 

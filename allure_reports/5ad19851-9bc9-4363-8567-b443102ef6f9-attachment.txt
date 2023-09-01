@@ -1,0 +1,4 @@
+POST: http://localhost:5000/api/genres
+PUT: http://localhost:5000/api/genres/36
+{"name":"DyWyHvneXh","id":36}
+DELETE: http://localhost:5000/api/genres/36

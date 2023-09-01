@@ -1,0 +1,3 @@
+POST: http://localhost:5000/api/genres
+DELETE: http://localhost:5000/api/genres/36
+GET: http://localhost:5000/api/genres/36
