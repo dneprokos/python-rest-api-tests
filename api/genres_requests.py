@@ -63,6 +63,8 @@ class GenresRequests(BaseRequests):
             "Authorization": f"Bearer {auth_token}"
         }
 
+        print(f"GET: {url}")
+
         response = pip._vendor.requests.get(url, headers=headers)
 
         return response
@@ -74,6 +76,8 @@ class GenresRequests(BaseRequests):
             "Accept": "application/json",
             "Authorization": f"Bearer {auth_token}"
         }
+
+        print(f"POST: {url}")
 
         response = pip._vendor.requests.post(url, headers=headers, json=payload)
 
@@ -87,6 +91,8 @@ class GenresRequests(BaseRequests):
             "Authorization": f"Bearer {auth_token}"
         }
 
+        print(f"POST: {url}")
+
         response = pip._vendor.requests.post(url, headers=headers, json=payload)
 
         return response
@@ -98,6 +104,8 @@ class GenresRequests(BaseRequests):
             "Accept": "application/json",
             "Authorization": f"Bearer {auth_token}"
         }
+
+        print(f"PUT: {url}")
 
         response = pip._vendor.requests.put(url, headers=headers, json=payload)
 
@@ -111,17 +119,22 @@ class GenresRequests(BaseRequests):
             "Authorization": f"Bearer {auth_token}"
         }
 
+        print(f"DELETE: {url}")
+
         response = pip._vendor.requests.delete(url, headers=headers)
 
         return response
     
     def search_genres(self, auth_token: str, queryParams: dict[str, any] = {}):
-        url = f"{self.base_url}/genres/search"
+        url = f"{self.base_url}/search"
         headers = {
             "Accept": "application/json",
             "Authorization": f"Bearer {auth_token}"
         }
 
-        response = pip._vendor.requests.get(url, params=queryParams, headers=headers)
+        print(f"GET: {url}")
 
-        return response.json()
+        response = pip._vendor.requests.get(url, params=queryParams, headers=headers)
+        print(f"GET: {response.url}")
+
+        return response
