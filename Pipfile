@@ -10,6 +10,7 @@ assertpy = "*"
 pytest-xdist = "*"
 lxml = "*"
 jsonpath-ng = "*"
+cerberus = "*"
 
 [dev-packages]
 
