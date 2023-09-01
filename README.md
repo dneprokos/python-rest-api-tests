@@ -27,4 +27,6 @@ This Project design to pratice in creation of REST API tests using Python progra
 
 - Run command `pipenv run python -m pytest` from the command line to run all the tests
 
+- Run command `pipenv run python -m pytest -s` from command line to run all the tests and see all printed outputs
+
 - Run command `pipenv run python -m pytest -n 5` from command line in order to run all tests in parallel. Number "5" can be changed to expected number of threads

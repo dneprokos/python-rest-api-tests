@@ -1,5 +1,7 @@
 from ._base_api import BaseRequests
 import pip._vendor.requests
+import requests
+from requests.models import Response
 
 class GenresRequests(BaseRequests):
     def __init__(self):
@@ -17,6 +19,41 @@ class GenresRequests(BaseRequests):
         response = pip._vendor.requests.get(url, headers=headers)
 
         return response
+    
+    # Get all genres - return xml hardcoded. This is just for testing purposes
+    def get_all_genres_return_xml_hardcoded(self, auth_token: str):
+        genres = [
+            {"id": 1, "name": "Action"},
+            {"id": 2, "name": "Horror"},
+            {"id": 3, "name": "Romance"},
+            {"id": 4, "name": "Science Fiction"},
+            {"id": 5, "name": "Disaster Film"},
+            {"id": 6, "name": "Epic Romance"},
+            {"id": 7, "name": "Superhero Film"},
+            {"id": 8, "name": "Space Western"},
+            {"id": 9, "name": "Comedy"},
+            {"id": 10, "name": "Adventure"},
+            {"id": 11, "name": "Western"}
+        ]
+    
+        xml_str = '<?xml version="1.0" encoding="UTF-8"?>\n'
+        xml_str += '<genres>\n'
+
+        for genre in genres:
+            xml_str += '  <genre>\n'
+            xml_str += f'    <id>{genre["id"]}</id>\n'
+            xml_str += f'    <name>{genre["name"]}</name>\n'
+            xml_str += '  </genre>\n'
+
+        xml_str += '</genres>'
+
+        response = Response()
+        response._content = xml_str.encode('utf-8')
+        response.status_code = 200
+        response.headers = {'Content-Type': 'application/xml'}
+        
+        return response
+
 
     # Get genre by id
     def get_genre_by_id(self, auth_token: str, genre_id: int):
