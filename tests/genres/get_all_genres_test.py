@@ -18,7 +18,7 @@ def test_get_all_genres_with_regular_user(regular_user_token):
     with soft_assertions(): # soft_assertions() allows us to continue to run the test even if one of the assertions fails
         # assert_that(response_body).extracting('id').is_not_none() # we can use extracting() to get a list of values for a given key
         extracted_ids = [item.get('id') for item in response_body]
-
+    
         for id_value in extracted_ids:
             assert_that(id_value).is_not_none()
         
