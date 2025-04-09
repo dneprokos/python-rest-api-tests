@@ -15,7 +15,7 @@ This Project design to pratice in creation of REST API tests using Python progra
 
 - In the root of the repository, run "pipenv install" from the command line.
 
-##  Activate a virtual environment
+## Activate a virtual environment
 
 - Run "pipenv shell" from command line to activate virtual environment
 
@@ -32,6 +32,8 @@ This Project design to pratice in creation of REST API tests using Python progra
 - Run command `pipenv run python -m pytest -n 5` from command line in order to run all tests in parallel. Number "5" can be changed to expected number of threads
 
 - Run command `pipenv run python -m pytest --alluredir=allure_reports` from command line in order to generate allure-reports. Directory name can be changed
+
+- Run command `pipenv run python -m pytest -o log_cli=true --log-cli-level=DEBUG` from command line in order to run tests with a logger
 
 ## Show allure reports
 

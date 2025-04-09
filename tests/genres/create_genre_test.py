@@ -14,13 +14,8 @@ def test_create_genre_from_payload_object(admin_user_token):
     response = GenresRequests().post_genre(admin_user_token, payload)
 
     # Assert
-    assert response.status_code == 201
-    response_body = response.json()
-    assert response_body is not None
+    assert_genre_response(response, payload.get('name'))
 
-    with soft_assertions():
-        assert response_body.get('id') is not None
-        assert response_body.get('name') == genre_name
 
 def test_create_genre_from_json_file(admin_user_token):
     # Arrange
@@ -30,10 +25,12 @@ def test_create_genre_from_json_file(admin_user_token):
     response = GenresRequests().post_genre(admin_user_token, payload)
 
     # Assert
-    assert response.status_code == 201
-    response_body = response.json()
-    assert response_body is not None
+    assert_genre_response(response, payload.get('name'))
 
+
+def assert_genre_response(response, expected_name):
+    assert response.status_code == 201
+    body = response.json()
     with soft_assertions():
-        assert response_body.get('id') is not None
-        assert response_body.get('name') == payload.get('name')
+        assert body.get('id') is not None
+        assert body.get('name') == expected_name
